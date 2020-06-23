@@ -35,6 +35,7 @@ class AnimuClient extends Client {
 //-> AnimuClient Schema
 AnimuClient.defaultClientSchema.add("animuStaff", "User", {
   array: true,
+  default: [],
 });
 AnimuClient.defaultClientSchema.add("supportServerInviteLink", "String");
 AnimuClient.defaultClientSchema.add("checkInViews", "number", { default: 0 });
