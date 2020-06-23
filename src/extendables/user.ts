@@ -1156,6 +1156,18 @@ module.exports = class extends Extendable {
         color: 0xf44336,
       });
 
+    const animuStaffLogsChannel = this.client.guilds
+      .get("556442896719544320" /* Aldovia ID */)
+      .channels.get("724878841323061308" /* Animu Staff Logs Channel ID */);
+    if (animuStaffLogsChannel instanceof TextChannel)
+      animuStaffLogsChannel.send(
+        `Animu Staff member by the tag of **${
+          this.client.users.get(this.id).tag
+        }** gave __**${value}**__ (${type}) to **${
+          this.client.users.get(member.id).tag
+        }**`
+      );
+
     if (type === "coins") {
       value = parseInt(value);
 
