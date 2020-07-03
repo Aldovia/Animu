@@ -822,7 +822,8 @@ module.exports = class extends Extendable {
     } else if (
       item.name === "Small Exp Bottle" ||
       item.name === "Medium Exp Bottle" ||
-      item.name === "Large Exp Bottle"
+      item.name === "Large Exp Bottle" ||
+      item.name === "Strange Exp Bottle"
     ) {
       if (!this.client.guilds.get(guildID).settings.get("allowExpBottles"))
         return new MessageEmbed({
