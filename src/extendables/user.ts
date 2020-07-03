@@ -1259,17 +1259,19 @@ module.exports = class extends Extendable {
 
     await inventory.deductCoins(coins);
 
-    if (period === 1) coins = coins * 1.01 ** 1;
-    if (period === 4) coins = coins * 1.02 ** 4;
-    if (period === 12) coins = coins * 1.03 ** 12;
+    let Fcoins: number;
 
-    coins = Math.round(coins);
+    if (period === 1) Fcoins = coins * 1.01 ** 1;
+    if (period === 4) Fcoins = coins * 1.02 ** 4;
+    if (period === 12) Fcoins = coins * 1.03 ** 12;
 
-    await bankAccount.addDeposit(period, coins);
+    Fcoins = Math.round(Fcoins);
+
+    await bankAccount.addDeposit(period, Fcoins);
 
     return new MessageEmbed({
       title: "Deposited",
-      description: `You have successfully deposited ${coins} Coins for ${period} weeks.`,
+      description: `You have successfully deposited ${coins} Coins for ${period} weeks.\nYou'll get ${Fcoins} when your deposit period ends.`,
       color: 0x2196f3,
     });
   }
