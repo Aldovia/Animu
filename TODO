@@ -20,6 +20,15 @@ TODO: Add Lyrics
 TODO: Add New Items:
 > Server Banner Changing Token (TO BE CONSIDERED)
 
+# Bank of Animu
+TODO: Add Bank of Animu
+TODO: Charge tax from rich users (total wealth above 3k coins)
+TODO: Replace coins command to use BOA for coins
+TODO: Replace shop to deposit coins to BOA
+TODO: Replace Bank Interests to withdraw coins from BOA
+TODO: Replace Check-ins to withdraw coins from BOA
+TODO: Replace vote boxes to withdraw coins from BOA
+
 # Misc
 TODO: Add ability for server owners to sell: Roles, badges and rep
 TODO: Add marketplace where users can put items for sale

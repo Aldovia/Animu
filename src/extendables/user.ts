@@ -1159,14 +1159,6 @@ module.exports = class extends Extendable {
     const animuStaffLogsChannel = this.client.guilds
       .get("556442896719544320" /* Aldovia ID */)
       .channels.get("724878841323061308" /* Animu Staff Logs Channel ID */);
-    if (animuStaffLogsChannel instanceof TextChannel)
-      animuStaffLogsChannel.send(
-        `Animu Staff member by the tag of **${
-          this.client.users.get(this.id).tag
-        }** gave __**${value}**__ (${type}) to **${
-          this.client.users.get(member.id).tag
-        }**`
-      );
 
     if (type === "coins") {
       value = parseInt(value);
@@ -1180,6 +1172,18 @@ module.exports = class extends Extendable {
 
       await senderInv.deductCoins(value);
       await receiverInv.addCoins(value);
+
+      if (
+        animuStaffLogsChannel instanceof TextChannel &&
+        _.includes(this.client.settings.get("animuStaff"), senderInv.memberID)
+      )
+        animuStaffLogsChannel.send(
+          `Animu Staff member by the tag of **${
+            this.client.users.get(this.id).tag
+          }** gave __**${value}**__ (${type}) to **${
+            this.client.users.get(member.id).tag
+          }**`
+        );
 
       return new MessageEmbed({
         title: `Transaction Successful`,
@@ -1201,6 +1205,18 @@ module.exports = class extends Extendable {
           .setColor("#f44336");
 
       await receiverInv.giveItem(value);
+
+      if (
+        animuStaffLogsChannel instanceof TextChannel &&
+        _.includes(this.client.settings.get("animuStaff"), senderInv.memberID)
+      )
+        animuStaffLogsChannel.send(
+          `Animu Staff member by the tag of **${
+            this.client.users.get(this.id).tag
+          }** gave __**${value}**__ (${type}) to **${
+            this.client.users.get(member.id).tag
+          }**`
+        );
 
       return new MessageEmbed({
         title: `Transaction Successful`,
